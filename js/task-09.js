@@ -1,13 +1,15 @@
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
-  }
+const widget = document.querySelector(".widget");
+const backgroundColor = document.querySelector(".color");
+const changeColor = document.querySelector(".change-color");
 
-  function changeBackgroundColor() {
-    const bodyElement = document.body;
-    const colorSpan = document.querySelector('.color');
+changeColor.addEventListener("click", () => {
+  const newBackgroundColor = getRandomHexColor();
+  document.body.style.backgroundColor = newBackgroundColor;
+  backgroundColor.textContent = newBackgroundColor;
+});
 
-    const randomColor = getRandomHexColor();
-
-    bodyElement.style.backgroundColor = randomColor;
-    colorSpan.textContent = randomColor;
-  }
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
